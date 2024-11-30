@@ -36,6 +36,9 @@ const Sidebar = () => {
           <li>
             <a href="/register" className="auth-button">Registro</a>
           </li>
+          <li>
+            <a href="/favorites" className="auth-button">Favoritos</a>
+          </li>
         </ul>
       </nav>
     </div>
