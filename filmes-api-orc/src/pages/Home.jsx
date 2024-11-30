@@ -10,7 +10,7 @@ const Home = () => {
   const [populares, setPopulares] = useState([]);
   const [filmesEmBreve, setfilmesEmBreve] = useState([]);
   const [consultaDeBusca, setConsultaDeBusca] = useState("");
-  const [opcaoDeOrdenacao, setOpcaoDeOrdenacao] = useState("release_date");
+  const [opcaoDeOrdenacao, setOpcaoDeOrdenacao] = useState("none");
 
   useEffect(() => {
     const buscarFilmes = async () => {
@@ -41,12 +41,19 @@ const Home = () => {
   };
 
   const ordenarFilmes = (filmes) => {
-    return [...filmes].sort((a, b) => {
-      if (opcaoDeOrdenacao === "alphabetical") {
-        return a.title.localeCompare(b.title);
-      }
-      return new Date(b.release_date) - new Date(a.release_date);
-    });
+    if (opcaoDeOrdenacao === "none") {
+      return filmes;
+    }
+    if (opcaoDeOrdenacao === "alphabetical") {
+      return [...filmes].sort((a, b) => a.title.localeCompare(b.title));
+    }
+    if (opcaoDeOrdenacao === "release_date") {
+      return [...filmes].sort((a, b) => {
+        const dataA = new Date(a.release_date);
+        const dataB = new Date(b.release_date);
+        return dataA - dataB;
+      });
+    }
   };
 
   const filmesFiltradosOrdenados = (filmes) => {
@@ -71,6 +78,7 @@ const Home = () => {
             onChange={(e) => setOpcaoDeOrdenacao(e.target.value)}
             className="sort-select"
           >
+            <option value="none">Sem filtro</option>
             <option value="release_date">Ordenar por lançamento</option>
             <option value="alphabetical">Ordenar alfabeticamente</option>
           </select>
