@@ -31,13 +31,13 @@ const Sidebar = () => {
             <a href="#upcoming">Em Breve</a>
           </li>
           <li>
-            <a href="/login" className="auth-button">Login</a>
+            <a href="/login" className="side-button">Login</a>
           </li>
           <li>
-            <a href="/register" className="auth-button">Registro</a>
+            <a href="/register" className="side-button">Registro</a>
           </li>
           <li>
-            <a href="/favorites" className="auth-button">Favoritos</a>
+            <a href="/favorites" className="side-button">Favoritos</a>
           </li>
         </ul>
       </nav>

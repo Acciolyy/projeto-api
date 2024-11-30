@@ -47,7 +47,7 @@
   color: #FF9F1C;
 }
 
-.auth-button {
+.side-button {
   display: block;
   padding: 12px 18px;
   color: #FDFFFC;
@@ -58,6 +58,6 @@
   text-decoration: none;
 }
 
-.auth-button:hover {
+.side-button:hover {
   background-color: #D10E2C;
 }
