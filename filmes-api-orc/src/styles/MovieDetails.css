@@ -1,0 +1,109 @@
+/* Estilo para o container principal da página */
+.moviedetails {
+    display: flex;
+    justify-content:end;  /* Centraliza o conteúdo da página */
+    padding: 30px;
+    background-color: #FDFFFC;
+}
+
+/* Estilo para a parte do conteúdo do filme */
+.movie-details-content {
+    display: flex;
+    flex-direction: column;  /* Alterado para coluna para o conteúdo ficar empilhado */
+    align-items: center;     /* Centraliza o conteúdo horizontalmente */
+    width: 80%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 20px;
+}
+
+/* Estilo para o poster */
+.movie-poster {
+    width: 450px;   /* Ajustado para tamanho adequado */
+    height: 700px;  /* Ajustado para tamanho adequado */
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;  /* Distância entre o poster e o título */
+}
+
+/* Estilo para os detalhes do filme */
+.movie-details-content h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    text-align: center;  /* Centraliza o título */
+}
+
+/* Estilo para a sinopse */
+.movie-details-content p.synopsis {
+    font-size: 5rem;
+    color: #333;
+    line-height: 1.8;
+    margin-bottom: 20px; /* Distância entre a sinopse e os detalhes */
+    text-align: center;  /* Centraliza a sinopse */
+}
+
+/* Estilo para os detalhes (data, gênero, nota) */
+.movie-details-content .movie-info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.movie-details-content .movie-info div {
+    font-size: 2rem;
+    color: #333;
+    text-align: center;
+}
+
+/* Estilo para os títulos de seções */
+h2 {
+    font-size: 2rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* Estilo para a seção de elenco */
+.cast {
+    display: flex;
+    justify-content: center;  /* Coloca o elenco na parte inferior */
+    gap: 15px;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: auto;  /* Empurra a seção de elenco para o final da página */
+}
+
+.cast-member {
+    width: 120px;
+    text-align: center;
+}
+
+.cast-member img {
+    width: 120px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.cast-member p {
+    font-size: 1.0rem;
+    color: #333;
+}
+
+.cast-member p:first-child {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Estilo para o backdrop geral */
+.movie-details-content {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;  /* Garantir que o conteúdo se distribua adequadamente */
+}
