@@ -1,43 +1,89 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/Sidebar.css";
 import logo from "../assets/logo.png";
 
 const Sidebar = () => {
+  const navigate = useNavigate();
+
+  const handleNavigation = (path, sectionId = null) => {
+    navigate(path);
+    if (sectionId) {
+      setTimeout(() => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+          section.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    }
+  };
+
   const handleLogoClick = () => {
-    window.location.reload();
+    navigate("/");
   };
 
   return (
     <div className="sidebar">
-      <div className="sidebar-logo">
-        <img
-          src={logo}
-          alt="Logo do site"
-          onClick={handleLogoClick}
-        />
+      <div className="sidebar-logo" onClick={handleLogoClick}>
+        <img src={logo} alt="Logo do site" />
       </div>
       <nav>
         <ul className="sidebar-list">
           <li>
-            <a href="#now-playing">Filmes em Cartaz</a>
+            <button
+              className="sidebar-link"
+              onClick={() => handleNavigation("/", "now-playing")}
+            >
+              Filmes em Cartaz
+            </button>
           </li>
           <li>
-            <a href="#top-rated">Mais Bem Avaliados</a>
+            <button
+              className="sidebar-link"
+              onClick={() => handleNavigation("/", "top-rated")}
+            >
+              Mais Bem Avaliados
+            </button>
           </li>
           <li>
-            <a href="#popular">Populares</a>
+            <button
+              className="sidebar-link"
+              onClick={() => handleNavigation("/", "popular")}
+            >
+              Populares
+            </button>
           </li>
           <li>
-            <a href="#upcoming">Em Breve</a>
+            <button
+              className="sidebar-link"
+              onClick={() => handleNavigation("/", "upcoming")}
+            >
+              Em Breve
+            </button>
           </li>
           <li>
-            <a href="/login" className="side-button">Login</a>
+            <button
+              className="side-button"
+              onClick={() => handleNavigation("/login")}
+            >
+              Login
+            </button>
           </li>
           <li>
-            <a href="/register" className="side-button">Registro</a>
+            <button
+              className="side-button"
+              onClick={() => handleNavigation("/register")}
+            >
+              Registro
+            </button>
           </li>
           <li>
-            <a href="/favorites" className="side-button">Favoritos</a>
+            <button
+              className="side-button"
+              onClick={() => handleNavigation("/favorites")}
+            >
+              Favoritos
+            </button>
           </li>
         </ul>
       </nav>

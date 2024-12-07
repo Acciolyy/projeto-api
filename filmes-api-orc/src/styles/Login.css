@@ -1,55 +1,57 @@
-* {
+body {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-}
-
-body{
+  }
+  
+  .login {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     background-color: #011627;
-}
-
-.l-container{
+  }
+  
+  .login .container {
     display: flex;
     justify-content: center;
     flex-direction: column;
     background-color: #FDFFFC;
     padding: 2rem;
-    height: auto;
     text-align: center;
     width: 500px;
-} 
-
-.l-container form {
+    border: 2px solid #D10E2C;
+    border-radius: 8px;
+  }
+  
+  .login .container form {
     display: flex;
     flex-direction: column;
     gap: 20px;
-
-    input{
-        border: none;
-        padding: 0.8rem;
-        &::placeholder{
-            color: #a7a5a5;
-        }
-    }
-}
-
-.titulo{
+  }
+  
+  .login .container form input {
+    border: none;
+    padding: 0.8rem;
+  }
+  
+  .login .container form input::placeholder {
+    color: #a7a5a5;
+  }
+  
+  .login .title {
     font-size: 2rem;
-    color:#011627;
+    color: #011627;
     font-weight: bold;
-}
-
-.subtitulo{
+  }
+  
+  .login .subtitle {
     font-size: 1rem;
     padding: 0 0 1.5rem 0;
-    color:#011627;
-}
-
-button.ent {
+    color: #011627;
+  }
+  
+  .login button.enter {
     background-color: #D10E2C;
     padding: 1rem;
     border: none;
@@ -58,34 +60,34 @@ button.ent {
     font-size: 1rem;
     border-radius: 2rem;
     cursor: pointer;
-
-    &:hover {
-        animation: 5s ease-in linear infinite;
-        color: #ffffff;
-        background-color: #e41232;
-    }
-}
-
-button.cad {
-    background-color: transparent; 
+  }
+  
+  .login button.enter:hover {
+    animation: 5s ease-in linear infinite;
+    color: #ffffff;
+    background-color: #e41232;
+  }
+  
+  .login button.login-register-btn {
+    background-color: transparent;
     padding: 1rem;
-    border: 2px solid #D10E2C; 
+    border: 2px solid #D10E2C;
     font-weight: bold;
-    color: #D10E2C; 
+    color: #D10E2C;
     font-size: 1rem;
     border-radius: 2rem;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
-
-   
-    &:hover {
-        background-color: #D10E2C; 
-        color: #FDFFFC; 
-    }
-}
-
-p{
+  }
+  
+  .login button.login-register-btn:hover {
+    background-color: #D10E2C;
+    color: #FDFFFC;
+  }
+  
+  .login p {
     margin-top: 1rem;
     margin-bottom: 1rem;
     font-size: 1rem;
-}
+  }
+  

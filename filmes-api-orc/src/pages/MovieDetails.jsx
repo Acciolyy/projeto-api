@@ -13,8 +13,8 @@ const MovieDetails = () => {
     fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=62d9b835ac72bafeede410b266b194c6&language=pt-BR`)
       .then((response) => response.json())
       .then((data) => {
-        setMovie(data); // Armazena os dados do filme no estado
-        setLoading(false); // Para o carregamento
+        setMovie(data);
+        setLoading(false);
       })
       .catch((error) => {
         console.error("Erro ao buscar detalhes do filme:", error);
@@ -24,7 +24,7 @@ const MovieDetails = () => {
       fetch(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=62d9b835ac72bafeede410b266b194c6`)
       .then((response) => response.json())
       .then((data) => {
-        setCast(data.cast.slice(0, 5)); // Armazena os primeiros 5 membros do elenco
+        setCast(data.cast.slice(0, 5));
       })
       .catch((error) => {
         console.error("Erro ao buscar elenco do filme:", error);
@@ -44,15 +44,15 @@ const MovieDetails = () => {
   return (
     <div className="moviedetails">
       <Sidebar />
-      <div className="movie-details-content">
+      <div className="movie-details-container">
       <img src={posterUrl} alt={movie.title} className="movie-poster" />
         <h1>{movie.title}</h1>
-        <p><strong>Sinopse:</strong> {movie.overview || "Sinopse não disponível."}</p>
-        <p><strong>Data de Lançamento:</strong> {movie.release_date}</p>
-        <p><strong>Nota:</strong> {movie.vote_average}</p>
-        <p><strong>Gênero:</strong> {movie.genres.map((genre) => genre.name).join(", ")}</p>
-
-         {/* Elenco */}
+        <div className="movie-info-container">
+          <p><strong>Sinopse:</strong> {movie.overview || "Sinopse não disponível."}</p>
+          <p><strong>Data de Lançamento:</strong> {movie.release_date}</p>
+          <p><strong>Nota:</strong> {movie.vote_average}</p>
+          <p><strong>Gênero:</strong> {movie.genres.map((genre) => genre.name).join(", ")}</p>
+        </div>
          <h2>Elenco</h2>
         <div className="cast">
           {cast.length > 0 ? (
