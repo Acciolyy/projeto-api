@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/Favorite.css";
+import Sidebar from "../components/Sidebar";
 
 const Favorites = () => {
   const navigate = useNavigate();
@@ -42,11 +43,7 @@ const Favorites = () => {
     localStorage.setItem("favoriteMovies", JSON.stringify(updatedFavorites));
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem("user");
-    setIsLoggedIn(false);
-    navigate("/login");
-  };
+  
 
   const handleDeleteAccount = () => {
     const confirmation = window.confirm("Tem certeza de que deseja excluir sua conta? Esta ação não pode ser desfeita.");
@@ -70,6 +67,7 @@ const Favorites = () => {
 
   return (
     <div className="favorites-container">
+      <Sidebar />
       <div className="profile-container">
         <h2>Editar Perfil</h2>
         <form onSubmit={handleSave}>
@@ -99,9 +97,7 @@ const Favorites = () => {
           </label>
           <button type="submit">Salvar</button>
         </form>
-        <button onClick={handleLogout} className="logout-btn">
-          Deslogar
-        </button>
+        
         <button onClick={handleDeleteAccount} className="delete-account-btn">
           Excluir Conta
         </button>

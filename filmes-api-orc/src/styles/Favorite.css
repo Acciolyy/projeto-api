@@ -1,78 +1,128 @@
-  .home {
-    display: flex;
-  }
-  
-  .profile-container{
-    margin-left: 200px;
-    padding: 20px;
-    flex: 1;
-    background-color: #FDFFFC;
-    color: #011627;
-    border-radius: 8px;
-  }
-  
-  .home-title {
-    font-size: 2.5rem;
-    margin: 20px 0;
-    color: #FF9F1C;
+/* Container principal do perfil */
+.profile-container {
+  display: flex;
+  flex-direction: column; /* Garante que os itens sejam empilhados verticalmente */
+  padding: 20px;
+  gap: 10px;
+  background-color: #f7f7f7;
+  min-height: 40vh;
+  align-items: center; /* Centraliza o conteúdo horizontalmente */
+  margin-bottom: 0;
+}
+
+
+
+/* Estilos para o título da página */
+h1 {
+  color: #333;  
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px; /* Adiciona espaço entre o título e o formulário */
+  text-align: center; /* Centraliza o título */
+}
+
+
+
+/* Estilo para cada rótulo de campo */
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #444;
+}
+
+/* Estilo para os campos de entrada */
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+/* Foco nos campos de entrada */
+input:focus {
+  border-color: #eb2b1a;
+  outline: none;
+  box-shadow: 0 0 4px rgba(76, 144, 224, 0.5);
+}
+
+/* Estilo para o botão de salvar */
+button {
+  padding: 12px 25px;
+  background-color: #F71735;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #df5a40;
+}
+
+/* Estilo para a lista de favoritos */
+.favorites-list {
+  margin-top: 0px; /* Adiciona espaço entre o título de "Favoritos" e os filmes */
+  padding: 20px;
+  background-color: #f7f7f7;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.favorite-item {
+  margin: 10px;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 150px;
+  text-align: center;
+}
+
+.favorite-poster {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.remove-btn {
+  margin-top: 10px;
+  padding: 8px 15px;
+  background-color: #eb2b1a;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.remove-btn:hover {
+  background-color: #c9382e;
+}
+
+/* Responsividade: ajusta o layout em telas menores */
+@media (max-width: 768px) {
+  .profile-container {
+    flex-direction: column;
+    gap: 10px;
   }
 
-  .favorites-container {
-    padding: 20px;
-    background-color: #FDFFFC;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
   .favorites-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
   }
-  
+
   .favorite-item {
-    width: 150px;
-    text-align: center;
-    margin: 10px;
+    width: 100%;
+    margin-bottom: 10px;
   }
   
-  .favorite-poster {
-    width: 120px;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 8px;
+
+  form {
+    width: 100%;
   }
-  
-  .favorite-item p {
-    font-size: 1rem;
-    font-weight: bold;
-    color: #011627;
-  }
-  
-  .logout-btn {
-    background-color: red;
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    margin-top: 20px;
-  }
-  
-  .logout-btn:hover {
-    background-color: darkred;
-  }
-  
-  .delete-account-btn {
-    background-color: #d9534f;
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    margin-top: 10px;
-  }
-  
-  .delete-account-btn:hover {
-    background-color: #c9302c;
-  }
-  
+}

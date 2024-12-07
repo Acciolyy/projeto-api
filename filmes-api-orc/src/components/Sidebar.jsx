@@ -91,7 +91,7 @@ const Sidebar = () => {
               className="side-button"
               onClick={handleFavoritesClick}
             >
-              Favoritos
+              Perfil
             </button>
           </li>
         </ul>
