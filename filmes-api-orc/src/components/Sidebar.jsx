@@ -22,6 +22,15 @@ const Sidebar = () => {
     navigate("/");
   };
 
+  const handleFavoritesClick = () => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      navigate("/favorites");
+    } else {
+      navigate("/login");
+    }
+  };
+
   return (
     <div className="sidebar">
       <div className="sidebar-logo" onClick={handleLogoClick}>
@@ -80,7 +89,7 @@ const Sidebar = () => {
           <li>
             <button
               className="side-button"
-              onClick={() => handleNavigation("/favorites")}
+              onClick={handleFavoritesClick}
             >
               Favoritos
             </button>

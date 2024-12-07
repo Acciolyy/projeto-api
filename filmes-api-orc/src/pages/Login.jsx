@@ -13,7 +13,7 @@ const Login = () => {
     const user = JSON.parse(localStorage.getItem("user"));  
     if (user && user.email === email && user.senha === senha) {
       alert("Login bem-sucedido!");
-      navigate("/home");
+      navigate("/");
     } else {
       alert("Email ou senha incorretos.");
     }

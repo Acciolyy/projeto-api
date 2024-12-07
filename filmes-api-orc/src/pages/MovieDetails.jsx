@@ -1,16 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import "../styles/MovieDetails.css";
 
 const MovieDetails = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
   const [cast, setCast] = useState([]);
-  const [isFavorited, setIsFavorited] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setIsLoggedIn(true);
+    } else {
+      setIsLoggedIn(false);
+    }
+
     fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=62d9b835ac72bafeede410b266b194c6&language=pt-BR`)
       .then((response) => response.json())
       .then((data) => {
@@ -33,7 +41,22 @@ const MovieDetails = () => {
   }, [id]);
 
   const handleFavorite = () => {
-    setIsFavorited(!isFavorited);
+    if (!isLoggedIn) {
+      alert("Você precisa estar logado para adicionar filmes aos favoritos.");
+      navigate("/login");
+      return;
+    }
+
+    const favoriteMovies = JSON.parse(localStorage.getItem("favoriteMovies")) || [];
+    const isAlreadyFavorite = favoriteMovies.some((favMovie) => favMovie.id === movie.id);
+
+    if (!isAlreadyFavorite) {
+      favoriteMovies.push(movie);
+      localStorage.setItem("favoriteMovies", JSON.stringify(favoriteMovies));
+      alert("Filme adicionado aos favoritos!");
+    } else {
+      alert("Este filme já está nos seus favoritos.");
+    }
   };
 
   if (loading) {
@@ -52,15 +75,20 @@ const MovieDetails = () => {
       <div className="movie-details-container">
         <img src={posterUrl} alt={movie.title} className="movie-poster" />
         <h1>{movie.title}</h1>
+        <div className="favorite-container">
+          <button
+            className="favorite-btn"
+            onClick={handleFavorite}
+            disabled={!isLoggedIn}
+          >
+            <span role="img" aria-label="favorite">&#9733;</span>
+          </button>
+        </div>
         <div className="movie-info-container">
           <p><strong>Sinopse:</strong> {movie.overview || "Sinopse não disponível."}</p>
           <p><strong>Data de Lançamento:</strong> {movie.release_date}</p>
           <p><strong>Nota:</strong> {movie.vote_average}</p>
           <p><strong>Gênero:</strong> {movie.genres.map((genre) => genre.name).join(", ")}</p>
-          <p><strong>Adicionar aos favoritos:</strong></p>
-          <div className="favorite-container">
-            <button className="favorite-btn"><span role="img" aria-label="favorite">&#9733;</span></button>
-          </div>
         </div>
         <h2>Elenco</h2>
         <div className="cast">

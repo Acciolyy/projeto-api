@@ -1,4 +1,4 @@
-.home {
+  .home {
     display: flex;
   }
   
@@ -16,3 +16,63 @@
     margin: 20px 0;
     color: #FF9F1C;
   }
+
+  .favorites-container {
+    padding: 20px;
+    background-color: #FDFFFC;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .favorites-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .favorite-item {
+    width: 150px;
+    text-align: center;
+    margin: 10px;
+  }
+  
+  .favorite-poster {
+    width: 120px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .favorite-item p {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #011627;
+  }
+  
+  .logout-btn {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  .logout-btn:hover {
+    background-color: darkred;
+  }
+  
+  .delete-account-btn {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .delete-account-btn:hover {
+    background-color: #c9302c;
+  }
+  
